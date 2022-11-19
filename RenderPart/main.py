@@ -17,6 +17,11 @@ class Window(QMainWindow):
         width, height = int(a0.size().width() * self.glRatio), int(a0.size().height() * self.glRatio)
         self.gl.setGeometry(50, 50, width, height)
         pass
+
+
+    def keyPressEvent(self, event):
+        self.gl.GLContext.keyPressEvent(event)
+        self.gl.update()
         
 if __name__ == "__main__":
     app = QApplication([])

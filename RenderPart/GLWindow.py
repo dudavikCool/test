@@ -25,8 +25,8 @@ class GLWindow(QGLWidget):
         self.GLContext.mouseMoveEvent(event)
         self.update()
 
-    def keyPressEvent(self, event):
-        return 
+
+
 
 
 if __name__ == "__main__":

@@ -31,10 +31,15 @@ class GLContext():
     def paintGL(self):
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         # self.camera.rotate(-0.5, 0, 0)
+        self.scene[0].rotate(z=1)
+        self.scene[0].rotate(y=1)
         self.scene.display()
 
     def mouseMoveEvent(self, event):
         pass
+
+    def keyPressEvent(self, event):
+        pass 
     
     def resizeGL(self, w, h):    
         glViewport(0, 0, int(w), int(h))
