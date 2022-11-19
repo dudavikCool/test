@@ -4,19 +4,21 @@ from OpenGL.GL.shaders import compileProgram, compileShader
 from ShaderComponents import ShaderComponent
 from DataTypes import *
 
-SHADER_SOURCES_PATH = "../ShaderSources"
+from pathlib import Path
+
+SHADER_SOURCES_PATH = Path("../ShaderSources")
 
 class ShaderType:
-    Basic = "/Basic"
-    DiffuseLight = "/DiffuseLight"
+    Basic = Path("Basic")
+    DiffuseLight = Path("DiffuseLight")
 
 
 class ShaderProgram:
     def __init__(self, shaderType : ShaderType):
-        shaderPath = SHADER_SOURCES_PATH + shaderType 
-        with open(shaderPath + "/vertex.vert", mode="r") as file_vert:
+        shaderPath = SHADER_SOURCES_PATH / shaderType 
+        with open(shaderPath / Path("vertex.vert"), mode="r") as file_vert:
             vertex_src = file_vert.readlines()
-        with open(shaderPath + "/fragment.frag", mode="r") as file_frag:
+        with open(shaderPath / Path("fragment.frag"), mode="r") as file_frag:
             fragment_src = file_frag.readlines()
 
         self.shaderProgram = compileProgram(compileShader(vertex_src, GL_VERTEX_SHADER),

@@ -1,3 +1,4 @@
-from RenderPart.ShaderProgram import ShaderType
+import pathlib
 
-print(ShaderType.DiffuseLight)
+part1 = pathlib.Path("/RenderPart")
+print(part1 / "main.py")
